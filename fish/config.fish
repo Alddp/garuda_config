@@ -200,14 +200,20 @@ alias trane 'trans -shell en:zh'
 alias tranz-b 'trans -e bing -shell zh:en'
 alias trane-b 'trans -e bing -shell en:zh'
 
+alias nv 'nvim'
+
 set EDITOR nvim
+
+# pokemon-colorscripts --no-title -s -r | fastfetch -c $HOME/.config/fastfetch/config-pokemon.jsonc --logo-type file-raw --logo-height 10 --logo-width 5 --logo -
+pokemon-colorscripts --no-title -s -r | fastfetch --logo-type file-raw --logo-height 10 --logo-width 5 --logo -
+
+Tproxy
 
 # set -g theme_nerd_fonts yes
 # set -g theme_color_scheme catpuccin-mocha
 #
 # set -g theme_display_user ssh
 # set -g default_user bobthecow
-
 
 # ==================================================
 
