@@ -22,10 +22,8 @@ return {
 
         -- install any other package
         "tree-sitter-cli",
-
-        -- "lua_ls",
-
         "rust-analyzer",
+        "yaml-language-server",
       },
     },
   },
