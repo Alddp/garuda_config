@@ -1,3 +1,4 @@
+test ! -e "$HOME/.x-cmd.root/local/data/fish/rc.fish" || source "$HOME/.x-cmd.root/local/data/fish/rc.fish" # boot up x-cmd.
 ## Set values
 # Hide welcome message & ensure we are reporting fish as shell
 set fish_greeting
@@ -111,12 +112,23 @@ end
 ## Useful aliases
 
 # Replace ls with eza
-alias ls 'eza -al --color=always --group-directories-first --icons' # preferred listing
-alias lsz 'eza -al --color=always --total-size --group-directories-first --icons' # include file size
-alias la 'eza -a --color=always --group-directories-first --icons'  # all files and dirs
-alias ll 'eza -l --color=always --group-directories-first --icons'  # long format
-alias lt 'eza -aT --color=always --group-directories-first --icons' # tree listing
-alias l. 'eza -ald --color=always --group-directories-first --icons .*' # show only dotfiles
+# alias ls 'eza -al --color=always --group-directories-first --icons' # preferred listing
+# alias lsz 'eza -al --color=always --total-size --group-directories-first --icons' # include file size
+# alias la 'eza -a --color=always --group-directories-first --icons'  # all files and dirs
+# alias ll 'eza -l --color=always --group-directories-first --icons'  # long format
+# alias lt 'eza -aT --color=always --group-directories-first --icons' # tree listing
+# alias l. 'eza -ald --color=always --group-directories-first --icons .*' # show only dotfiles
+
+
+alias ls 'lsd -la' # preferred listing
+alias lsz 'lsd -la --size default' # include file size
+alias la 'lsd -a'  # all files and dirs
+alias ll 'lsd -l'  # long format
+alias lt 'lsd --tree --depth' # tree listing
+# alias l. 'lsd -ald --color=always --group-directories-first --icons .*' # show only dotfiles
+alias la. 'lsd -ad  .*' # show only dotfiles
+alias l. 'lsd -ald  .*' # show only dotfiles
+
 
 # Replace some more things with better alternatives
 alias cat 'bat --style header --style snip --style changes --style header'
@@ -221,4 +233,3 @@ Tproxy
 # if status --is-interactive && type -q fastfetch
 #    fastfetch --config neofetch.jsonc
 # end
-
