@@ -17,4 +17,5 @@ return {
   { import = "astrocommunity.recipes.neovide" },
   { import = "astrocommunity.colorscheme.onedarkpro-nvim" },
   { import = "astrocommunity.pack.python" },
+  { import = "astrocommunity.pack.cpp" },
 }
