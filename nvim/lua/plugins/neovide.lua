@@ -1,5 +1,12 @@
 if not vim.g.neovide then return {} end
 
+vim.o.guifont = "JetBrainsMono Nerd Font,Symbols Nerd Font:h14"
+
+vim.g.neovide_input_use_logo = true -- 让 Command/Windows键可以作为快捷键修饰符
+
+-- 设置系统剪贴板粘贴的 fallback 映射
+vim.keymap.set("c", "<C-v>", "<C-R>+", { noremap = true }) -- 命令行模式中 Ctrl+V 粘贴
+
 ---@param scale_factor number
 ---@return number
 local function clamp_scale_factor(scale_factor)

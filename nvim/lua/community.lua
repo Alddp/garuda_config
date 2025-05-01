@@ -18,4 +18,7 @@ return {
   { import = "astrocommunity.colorscheme.onedarkpro-nvim" },
   { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.cpp" },
+  { import = "astrocommunity.pack.rainbow-delimiter-indent-blankline" },
+  { import = "astrocommunity.colorscheme.catppuccin" },
+  { import = "astrocommunity.utility.noice-nvim" },
 }

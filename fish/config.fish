@@ -221,12 +221,6 @@ pokemon-colorscripts --no-title -s -r | fastfetch --logo-type file-raw --logo-he
 
 Tproxy
 
-# set -g theme_nerd_fonts yes
-# set -g theme_color_scheme catpuccin-mocha
-#
-# set -g theme_display_user ssh
-# set -g default_user bobthecow
-
 # ==================================================
 
 ## Run fastfetch if session is interactive

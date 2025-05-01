@@ -28,7 +28,7 @@ return {
                 },
               },
               check = {
-                command = "clippy",
+                command = "check",
                 extraArgs = {
                   "--no-deps",
                 },
@@ -137,5 +137,18 @@ return {
       }
     end,
     config = function(_, opts) vim.g.rustaceanvim = require("astrocore").extend_tbl(opts, vim.g.rustaceanvim) end,
+
+    keys = {
+      { "<leader>r", "", desc = "Rust" },
+      { "<leader>rr", "<cmd>RustLsp runnables<CR>", desc = "Run runnables" },
+      { "<leader>re", "<cmd>RustLsp expandMacro<CR>", desc = "Expand macro" },
+      { "<leader>rd", "<cmd>RustLsp externalDocs<CR>", desc = "Open docs" },
+      { "<leader>rm", "<cmd>RustLsp openCargo<CR>", desc = "Open Cargo.toml" },
+      { "<leader>rg", "<cmd>RustLsp crateGraph<CR>", desc = "Crate graph" },
+      { "<leader>rh", "<cmd>RustLsp hover actions<CR>", desc = "Hover actions" },
+      { "<leader>rs", "<cmd>RustLsp syntaxTree<CR>", desc = "Syntax tree" },
+      { "<leader>r<Up>", "<cmd>RustLsp moveItemUp<CR>", desc = "Move item up" },
+      { "<leader>r<Down>", "<cmd>RustLsp moveItemDown<CR>", desc = "Move item down" },
+    },
   },
 }
