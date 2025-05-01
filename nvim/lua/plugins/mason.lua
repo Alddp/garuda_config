@@ -24,6 +24,7 @@ return {
         "tree-sitter-cli",
         "rust-analyzer",
         "yaml-language-server",
+        "json-lsp",
       },
     },
   },
