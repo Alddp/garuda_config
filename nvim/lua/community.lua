@@ -21,4 +21,5 @@ return {
   { import = "astrocommunity.pack.rainbow-delimiter-indent-blankline" },
   { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.utility.noice-nvim" },
+  { import = "astrocommunity.diagnostics.trouble-nvim" },
 }
