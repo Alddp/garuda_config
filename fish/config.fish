@@ -120,10 +120,12 @@ end
 # alias l. 'eza -ald --color=always --group-directories-first --icons .*' # show only dotfiles
 
 
-alias ls 'lsd -la' # preferred listing
+alias ls 'lsd' # preferred listing
 alias lsz 'lsd -la --size default' # include file size
 alias la 'lsd -a'  # all files and dirs
 alias ll 'lsd -l'  # long format
+alias lla 'lsd -la'
+alias ltt "lsd --tree"
 alias lt 'lsd --tree --depth' # tree listing
 # alias l. 'lsd -ald --color=always --group-directories-first --icons .*' # show only dotfiles
 alias la. 'lsd -ad  .*' # show only dotfiles

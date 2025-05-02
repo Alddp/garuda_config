@@ -6,7 +6,7 @@ local userDashBoard = {
   {
     pane = 2,
     section = "terminal",
-    cmd = "/opt/shell-color-scripts/colorscript.sh -e square",
+    cmd = "colorscript -e square",
     height = 5,
     padding = 1,
   },
