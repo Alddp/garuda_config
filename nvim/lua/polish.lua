@@ -9,3 +9,6 @@ vim.opt.shell = "/usr/bin/fish"
 vim.opt.shellcmdflag = "--no-config -c"
 
 vim.opt.modeline = false
+
+-- moved to astroui.lua
+-- vim.keymap.set("n", "<leader>Ub", function() vim.cmd("cd " .. vim.fn.expand "%:p:h") end, { desc = "Cd To Buffer Dir" })
