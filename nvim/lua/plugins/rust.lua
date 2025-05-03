@@ -139,7 +139,7 @@ return {
     config = function(_, opts) vim.g.rustaceanvim = require("astrocore").extend_tbl(opts, vim.g.rustaceanvim) end,
 
     keys = {
-      { "<leader>r", "", desc = "Rust" },
+      { "<leader>r", "", desc = " Rust" },
       { "<leader>rr", "<cmd>RustLsp runnables<CR>", desc = "Run runnables" },
       { "<leader>re", "<cmd>RustLsp expandMacro<CR>", desc = "Expand macro" },
       { "<leader>rd", "<cmd>RustLsp externalDocs<CR>", desc = "Open docs" },

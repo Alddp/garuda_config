@@ -3,7 +3,7 @@ return {
   event = "BufReadPost",
   cmd = { "AerialToggle", "AerialOpen", "AerialNavToggle" },
   keys = {
-    { "<leader>a", "", desc = "Aerial" },
+    { "<leader>a", "", desc = "󱣱 Navigation" },
     { "<leader>at", "<cmd>AerialToggle!<CR>", desc = "Toggle Aerial (keep focus)" },
     { "<leader>al", "<cmd>AerialOpen! left<CR>", desc = "Open Aerial on Left" },
     { "<leader>ar", "<cmd>AerialOpen! right<CR>", desc = "Open Aerial on Right" },

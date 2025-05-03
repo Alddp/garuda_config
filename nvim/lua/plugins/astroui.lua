@@ -102,14 +102,16 @@ return {
     end,
   },
   {
+
     "nvim-neo-tree/neo-tree.nvim",
     keys = {
+      { "<leader>N", "", desc = " Neotree" },
       -- 设置Neotree root 为工作目录
-      { "<leader>Uw", "<cmd>:Neotree dir=./<CR>", desc = "Cd To WorkSpace" },
+      { "<leader>Nw", "<cmd>:Neotree dir=./<CR>", desc = "Cd To WorkSpace" },
 
       -- 打开buffer所在目录
       {
-        "<leader>Ub",
+        "<leader>Nb",
         function() vim.cmd("cd " .. vim.fn.expand "%:p:h") end,
         desc = "CD to current buffer's directory",
       },

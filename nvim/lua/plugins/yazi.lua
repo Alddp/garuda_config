@@ -8,7 +8,7 @@ return {
     "folke/snacks.nvim",
   },
   keys = {
-    { "<leader>y", "", desc = "Yazi" }, -- group title
+    { "<leader>y", "", desc = "󰇥 Yazi" }, -- group title
     {
       "<leader>yy",
       "<cmd>Yazi<CR>",
