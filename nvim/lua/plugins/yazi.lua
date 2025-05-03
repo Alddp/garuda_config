@@ -12,7 +12,7 @@ return {
     {
       "<leader>yy",
       "<cmd>Yazi<CR>",
-      desc = "Resume last Yazi session",
+      desc = "Toggle Yazi at current file",
     },
     {
       "<leader>yc",
@@ -23,7 +23,7 @@ return {
       "<leader>o",
       "<cmd>Yazi toggle<CR>",
       mode = { "n", "v" },
-      desc = "Toggle Yazi at current file",
+      desc = "Resume last Yazi session",
     },
   },
   ---@type YaziConfig | {}

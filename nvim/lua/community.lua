@@ -23,4 +23,7 @@ return {
   { import = "astrocommunity.utility.noice-nvim" },
   { import = "astrocommunity.diagnostics.trouble-nvim" },
   { import = "astrocommunity.recipes.neo-tree-dark" },
+
+  -- { import = "astrocommunity.recipes.heirline-mode-text-statusline" },
+  -- { import = "astrocommunity.recipes.heirline-clock-statusline" },
 }
