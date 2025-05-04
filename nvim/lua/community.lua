@@ -15,7 +15,7 @@ return {
   { import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
   { import = "astrocommunity.motion.flash-nvim" },
   { import = "astrocommunity.recipes.neovide" },
-  { import = "astrocommunity.colorscheme.onedarkpro-nvim" },
+  -- { import = "astrocommunity.colorscheme.onedarkpro-nvim" },
   { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.cpp" },
   { import = "astrocommunity.pack.rainbow-delimiter-indent-blankline" },
@@ -23,6 +23,9 @@ return {
   { import = "astrocommunity.utility.noice-nvim" },
   { import = "astrocommunity.diagnostics.trouble-nvim" },
   { import = "astrocommunity.recipes.neo-tree-dark" },
+
+  { import = "astrocommunity.editing-support.vim-visual-multi" },
+  { import = "astrocommunity.editing-support.undotree" },
 
   -- { import = "astrocommunity.recipes.heirline-mode-text-statusline" },
   -- { import = "astrocommunity.recipes.heirline-clock-statusline" },
