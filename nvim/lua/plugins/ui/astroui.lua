@@ -47,41 +47,9 @@ local new_highlights = {
 return {
   {
     "AstroNvim/astroui",
-    ---@type AstroUIOpts
-    opts = {
-      -- change colorscheme
-      -- colorscheme = "onedark_vivid",
-      colorscheme = "onedark",
-      -- colorscheme = "catppuccin-mocha",
-      -- AstroUI allows you to easily modify highlight groups easily for any and all colorschemes
-      highlights = {
-        init = { -- this table overrides highlights in all themes
-          -- Normal = { bg = "#000000" },
-        },
-        astrodark = { -- a table of overrides/changes when applying the astrotheme theme
-          -- Normal = { bg = "#000000" },
-        },
-      },
-      -- Icons can be configured throughout the interface
-      icons = {
-        -- configure the loading of the lsp in the status line
-        LSPLoading1 = "⠋",
-        LSPLoading2 = "⠙",
-        LSPLoading3 = "⠹",
-        LSPLoading4 = "⠸",
-        LSPLoading5 = "⠼",
-        LSPLoading6 = "⠴",
-        LSPLoading7 = "⠦",
-        LSPLoading8 = "⠧",
-        LSPLoading9 = "⠇",
-        LSPLoading10 = "⠏",
-      },
-    },
-  },
-  {
-    "AstroNvim/astroui",
     ---@param opts AstroUIOpts
     opts = function(_, opts)
+      -- Configure highlights
       if not opts.highlights then opts.highlights = {} end
       local astrodark = opts.highlights.astrodark
       if type(astrodark) == "function" then
@@ -90,8 +58,9 @@ return {
         opts.highlights.astrodark = require("astrocore").extend_tbl(astrodark, new_highlights)
       end
 
+      -- Configure icons
       if not opts.icons then opts.icons = {} end
-      opts.icons.GitAdd = "󰬈" -- set icon for git symbols
+      opts.icons.GitAdd = "󰬈"
       opts.icons.GitChange = "󰬔"
       opts.icons.GitDelete = "󰬋"
       opts.icons.GitRenamed = "󰬙"
@@ -100,17 +69,25 @@ return {
       opts.icons.GitUnstaged = "󰬜"
       opts.icons.GitStaged = "󰬚"
       opts.icons.GitConflict = "󰬊"
+
+      -- Set colorscheme
+      opts.colorscheme = "onedark" -- You can change this to "catppuccin-mocha" or another scheme
+
+      -- Optional initial highlights
+      opts.highlights.init = {
+        -- Normal = { bg = "#000000" },  -- example of overriding a highlight globally
+      }
     end,
   },
-  {
 
+  {
     "nvim-neo-tree/neo-tree.nvim",
     keys = {
       { "<leader>N", "", desc = " Neotree" },
-      -- 设置Neotree root 为工作目录
+      -- Set Neotree root as workspace
       { "<leader>Nw", "<cmd>:Neotree dir=./<CR>", desc = "Cd To WorkSpace" },
 
-      -- 打开buffer所在目录
+      -- Open the buffer's directory
       {
         "<leader>Nb",
         function() vim.cmd("cd " .. vim.fn.expand "%:p:h") end,
