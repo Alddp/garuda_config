@@ -19,14 +19,14 @@ return {
   { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.cpp" },
   { import = "astrocommunity.pack.rainbow-delimiter-indent-blankline" },
-  { import = "astrocommunity.colorscheme.catppuccin" },
-  { import = "astrocommunity.utility.noice-nvim" },
-  { import = "astrocommunity.diagnostics.trouble-nvim" },
-  { import = "astrocommunity.recipes.neo-tree-dark" },
 
   { import = "astrocommunity.editing-support.vim-visual-multi" },
   { import = "astrocommunity.editing-support.undotree" },
 
+  { import = "astrocommunity.colorscheme.catppuccin" },
+  { import = "astrocommunity.utility.noice-nvim" },
+  { import = "astrocommunity.diagnostics.trouble-nvim" },
+  { import = "astrocommunity.recipes.neo-tree-dark" },
   { import = "astrocommunity.motion.nvim-surround" },
   -- { import = "astrocommunity.recipes.heirline-mode-text-statusline" },
   -- { import = "astrocommunity.recipes.heirline-clock-statusline" },

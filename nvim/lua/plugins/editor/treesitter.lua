@@ -18,6 +18,13 @@ return {
       "html",
       "javascript",
       "bash",
+      "latex",
+      "norg",
+      "scss",
+      "svelte",
+      "tsx",
+      "typst",
+      "vue",
     },
   },
 }
