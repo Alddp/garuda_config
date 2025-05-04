@@ -1,12 +1,3 @@
-local file_encoding = {
-  provider = function()
-    local enc = vim.bo.fenc ~= "" and vim.bo.fenc or vim.o.enc
-    return " " .. enc:upper()
-  end,
-  hl = { fg = "yellow", bold = true },
-  padding = { left = 1, right = 1 },
-}
-
 local FileEncoding = {
   provider = function()
     local enc = vim.bo.fenc ~= "" and vim.bo.fenc or vim.o.enc
@@ -38,19 +29,6 @@ local FilePath = {
   padding = { left = 1, right = 1 },
 }
 
--- local buffer_path = {
---   provider = function()
---     local path = vim.fn.expand "%:~:.:h"
---     return "󰉋 " .. (path ~= "" and path or "[No Name]")
---   end,
---   hl = { fg = "magenta", bold = true },
--- }
-
-local relative_path = {
-  provider = function() return " " .. vim.fn.fnamemodify(vim.fn.getcwd(), ":t") .. " " end,
-  hl = { fg = "cyan", bold = true },
-}
-
 return {
   {
     "AstroNvim/astroui",
@@ -71,6 +49,55 @@ return {
         separators = {
           left = { "", "" }, -- separator for the left side of the statusline
           right = { " ", "" }, -- separator for the right side of the statusline
+          tab = { "", "" },
+        },
+        -- add new colors that can be used by heirline
+        colors = function(hl)
+          local get_hlgroup = require("astroui").get_hlgroup
+          -- use helper function to get highlight group properties
+          local comment_fg = get_hlgroup("Comment").fg
+          hl.git_branch_fg = comment_fg
+          hl.git_added = comment_fg
+          hl.git_changed = comment_fg
+          hl.git_removed = comment_fg
+          hl.blank_bg = get_hlgroup("Folded").fg
+          hl.file_info_bg = get_hlgroup("Visual").bg
+          hl.nav_icon_bg = get_hlgroup("String").fg
+          hl.nav_fg = hl.nav_icon_bg
+          hl.folder_icon_bg = get_hlgroup("Error").fg
+          return hl
+        end,
+        attributes = {
+          mode = { bold = true },
+        },
+        icon_highlights = {
+          file_icon = {
+            statusline = false,
+          },
+        },
+      },
+    },
+  },
+
+  {
+    "AstroNvim/astroui",
+    ---@type AstroUIOpts
+    opts = {
+      -- add new user interface icon
+      icons = {
+        VimIcon = "",
+        ScrollText = "",
+        GitBranch = "",
+        GitAdd = "",
+        GitChange = "",
+        GitDelete = "",
+      },
+      -- modify variables used by heirline but not defined in the setup call directly
+      status = {
+        -- define the separators between each section
+        separators = {
+          left = { "", "" }, -- separator for the left side of the statusline
+          right = { "", "" }, -- separator for the right side of the statusline
           tab = { "", "" },
         },
         -- add new colors that can be used by heirline
@@ -157,57 +184,61 @@ return {
         -- fill the rest of the statusline
         -- the elements after this will appear in the middle of the statusline
         status.component.fill(),
-        -- relative_path,
-        -- file_encoding,
-        FilePath,
-        status.component.fill(),
-        FileEncoding,
         -- add a component to display if the LSP is loading, disable showing running client names, and use no separator
-        -- status.component.lsp {
-        --   lsp_client_names = false,
-        --   surround = { separator = "none", color = "bg" },
-        -- },
+
+        status.component.lsp {
+          lsp_client_names = false,
+          surround = { separator = "none", color = "bg" },
+        },
+        -- FilePath,
+
         -- fill the rest of the statusline
         -- the elements after this will appear on the right of the statusline
+        status.component.fill(),
+        FileEncoding,
         -- add a component for the current diagnostics if it exists and use the right separator for the section
-        status.component.diagnostics { surround = { separator = "right" } },
+        status.component.diagnostics { surround = { separator = "right" }, padding = { right = 1 } },
         -- add a component to display LSP clients, disable showing LSP progress, and use the right separator
-        -- status.component.lsp {
-        --   lsp_progress = false,
-        --   surround = { separator = "right" },
-        -- },
+        status.component.lsp {
+          lsp_progress = false,
+          padding = { right = 1 },
+          surround = { separator = "right" },
+        },
         -- NvChad has some nice icons to go along with information, so we can create a parent component to do this
         -- all of the children of this table will be treated together as a single component
         {
-          -- define a simple component where the provider is just a folder icon
-          status.component.builder {
-            -- astronvim.get_icon gets the user interface icon for a closed folder with a space after it
-            { provider = require("astroui").get_icon "FolderClosed" },
-            -- add padding after icon
-            padding = { right = 1 },
-            -- set the foreground color to be used for the icon
-            hl = { fg = "bg" },
-            -- use the right separator and define the background color
-            surround = { separator = "right", color = "folder_icon_bg" },
-          },
-          -- add a file information component and only show the current working directory name
-          status.component.file_info {
-            -- we only want filename to be used and we can change the fname
-            -- function to get the current working directory name
-            filename = {
-              fname = function(nr) return vim.fn.getcwd(nr) end,
-              padding = { left = 1 },
+          flexible = 1,
+          {
+            -- define a simple component where the provider is just a folder icon
+            status.component.builder {
+              -- astronvim.get_icon gets the user interface icon for a closed folder with a space after it
+              { provider = require("astroui").get_icon "FolderClosed" },
+              -- add padding after icon
+              padding = { right = 1 },
+              -- set the foreground color to be used for the icon
+              hl = { fg = "bg" },
+              -- use the right separator and define the background color
+              surround = { separator = "right", color = "folder_icon_bg" },
             },
-            -- disable all other elements of the file_info component
-            filetype = false,
-            file_icon = false,
-            file_modified = false,
-            file_read_only = false,
-            -- use no separator for this part but define a background color
-            surround = {
-              separator = "none",
-              color = "file_info_bg",
-              condition = false,
+            -- add a file information component and only show the current working directory name
+            status.component.file_info {
+              -- we only want filename to be used and we can change the fname
+              -- function to get the current working directory name
+              filename = {
+                fname = function(nr) return vim.fn.getcwd(nr) end,
+                padding = { left = 1, right = 1 },
+              },
+              -- disable all other elements of the file_info component
+              filetype = false,
+              file_icon = false,
+              file_modified = false,
+              file_read_only = false,
+              -- use no separator for this part but define a background color
+              surround = {
+                separator = "none",
+                color = "file_info_bg",
+                condition = false,
+              },
             },
           },
         },
