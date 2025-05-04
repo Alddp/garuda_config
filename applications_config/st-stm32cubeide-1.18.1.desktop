@@ -1,1 +1,11 @@
-/home/alddp/.local/share/applications/st-stm32cubeide-1.18.1.desktop
+[Desktop Entry]
+Name=STM32CubeIDE 1.18.1
+Comment=STMicroelectronics STM32CubeIDE 1.18.1
+GenericName=STM32CubeIDE
+Exec=/home/alddp/st/stm32cubeide_1.18.1/stm32cubeide_wayland %F
+Icon=/home/alddp/st/stm32cubeide_1.18.1/icon.xpm
+Path=/home/alddp/st/stm32cubeide_1.18.1/
+Terminal=false
+StartupNotify=true
+Type=Application
+Categories=Development

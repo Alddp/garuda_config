@@ -11,6 +11,6 @@ export XCURSOR_THEME=Bibata-Modern-Ice
 export XCURSOR_SIZE=24
 
 
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS=@im=fcitx
+# export GTK_IM_MODULE=fcitx
+# export QT_IM_MODULE=fcitx
+# export XMODIFIERS=@im=fcitx

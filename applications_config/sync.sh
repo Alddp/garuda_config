@@ -21,7 +21,7 @@ for file in $source_dir/*
     # 检查当前项是否是文件
     if test -f $file
         # 创建符号链接
-        ln -sf $file $target_dir/
+        ln $file $target_dir/
         echo "Linked: $file -> $target_dir/"
     else
         echo "Skipping non-file: $file"

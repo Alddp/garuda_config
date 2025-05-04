@@ -1,1 +1,8 @@
-/home/alddp/.local/share/applications/userapp-Thunderbird-8JU952.desktop
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+NoDisplay=true
+Exec=/usr/lib/thunderbird/thunderbird %u
+Name=Thunderbird
+Comment=Thunderbird 的自定义
