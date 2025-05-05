@@ -12,7 +12,7 @@ patch:
 
     # 方案选单相关
     switcher/hotkeys:
-      - Shift+F4
+      - Shift+Alt+F4
 
     ascii_composer/switch_key:
       Caps_Lock: clear # commit_code | commit_text | clear
