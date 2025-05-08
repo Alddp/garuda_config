@@ -186,6 +186,7 @@ alias rip 'expac --timefmt="%Y-%m-%d %T" "%l\t%n %v" | sort | tail -200 | nl'
 
 
 # ==========================================================================
+export LLM_KEY=sk-ee744476934a466bb2a36203463be886
 
 function Tproxy -d "Toggle proxy"
   if set -q http_proxy
@@ -208,20 +209,31 @@ function y
 	rm -f -- "$tmp"
 end
 
-alias tranz 'trans -shell zh:en'
-alias trane 'trans -shell en:zh'
+# alias tranz 'trans -shell zh:en'
+# alias trane 'trans -shell en:zh'
+#
+# alias tranz-b 'trans -e bing -shell zh:en'
+# alias trane-b 'trans -e bing -shell en:zh'
+ 
 
-alias tranz-b 'trans -e bing -shell zh:en'
-alias trane-b 'trans -e bing -shell en:zh'
+alias tranz 'trans zh:en'
+alias trane 'trans en:zh'
+
+alias tranz-b 'trans -e bing zh:en'
+alias trane-b 'trans -e bing en:zh'
+
 
 alias nv 'nvim'
+alias conda 'micromamba'
 
 set EDITOR nvim
+set -Ux BROWSER /usr/bin/firefox
+
 
 # pokemon-colorscripts --no-title -s -r | fastfetch -c $HOME/.config/fastfetch/config-pokemon.jsonc --logo-type file-raw --logo-height 10 --logo-width 5 --logo -
 pokemon-colorscripts --no-title -s -r | fastfetch --logo-type file-raw --logo-height 10 --logo-width 5 --logo -
 
-Tproxy
+# Tproxy
 
 # ==================================================
 
@@ -229,3 +241,10 @@ Tproxy
 # if status --is-interactive && type -q fastfetch
 #    fastfetch --config neofetch.jsonc
 # end
+
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'micromamba shell init' !!
+set -gx MAMBA_EXE "/usr/bin/micromamba"
+set -gx MAMBA_ROOT_PREFIX "/home/alddp/.local/share/mamba"
+$MAMBA_EXE shell hook --shell fish --root-prefix $MAMBA_ROOT_PREFIX | source
+# <<< mamba initialize <<<

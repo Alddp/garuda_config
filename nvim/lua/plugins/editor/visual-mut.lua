@@ -3,7 +3,7 @@ return {
   event = { "User AstroFile", "InsertEnter" },
   dependencies = {
     "AstroNvim/astrocore",
-    ---@param opts astrocoreopts
+    ---@param opts AstroCoreOpts
     opts = function(_, opts)
       if not opts.options then opts.options = {} end
       if not opts.options.g then opts.options.g = {} end

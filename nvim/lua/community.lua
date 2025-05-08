@@ -28,6 +28,9 @@ return {
   { import = "astrocommunity.diagnostics.trouble-nvim" },
   { import = "astrocommunity.recipes.neo-tree-dark" },
   { import = "astrocommunity.motion.nvim-surround" },
+
+  -- { import = "astrocommunity.ai.kurama622-llm-nvim" },
+
   -- { import = "astrocommunity.recipes.heirline-mode-text-statusline" },
   -- { import = "astrocommunity.recipes.heirline-clock-statusline" },
 }
