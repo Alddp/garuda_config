@@ -222,6 +222,7 @@ alias trane 'trans en:zh'
 alias tranz-b 'trans -e bing zh:en'
 alias trane-b 'trans -e bing en:zh'
 
+alias wezterm 'env -u WAYLAND_DISPLAY wezterm'
 
 alias nv 'nvim'
 alias conda 'micromamba'
